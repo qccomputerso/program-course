@@ -10,7 +10,10 @@ System.components["page-content"] = {
 		<div class="tab-content">
 			<a class="button" href="../">Back to main site &gt;&gt;</a>
 			<br><br>
-			<group-file-downloads :file-group="database.python" />
+			<group-file-downloads
+			  v-for="fg in database"
+			  :file-group="fg"
+			 />
 		</div>
 	</div>`
 }
