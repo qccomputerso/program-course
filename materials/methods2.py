@@ -1,36 +1,34 @@
-class human:
-    name = 'John'
-    age = 20
-    height = 170
-
-    def __init__(self, name,  age, height):
-        self.name = name
+class Human:
+    # You can define default values for all instances of Human with this
+    isAHuman = True
+    def __init__(self, name, age):
         self.age = age
-        self.height = height
+        self.name = name
+        self.nameTag = name + " (" + str(age) + ")"
 
-    def greet(self):
-        return 'Hello'
+    def greet(self, otherPerson):
+        print("Hello " + otherPerson.nameTag + ", I am " + self.nameTag)
 
-    def goodbye(self):
-        return 'Bye Bye'
+    def greet(self, otherPerson):
+        print("Goodbye " + otherPerson.nametag)
 
-    def intro(self):
-        print(f'Hi, my name is {self.name}, I am {self.age}. I am {self.height} cm tall ')
+John = Human("John", 200)
+Mary = Human("Mary", 193)
 
-John = human
-Mary = human
+John.greet(Mary)
+# Hello Mary (193), I am John (200)
 
-print(John.greet(Mary))
-John.intro(John)
+John.goodbye(Mary)
+# Goodbye Mary (193)
+
+Human.isAHuman
+# True
+
+John.isAHuman
+# True
+
+Mary.isAHuman
+#True
 
 
-print(John.goodbye(Mary))
-
-
-
-def greet():
-    print('hello')
-
-greet()
-
-
+# https://docs.python.org/3/tutorial/classes.html

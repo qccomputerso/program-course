@@ -1,25 +1,32 @@
-class Vehicles:
-
+class Vehicle:
     def __init__(self, name, color, max_speed, brand):
         self.name = name
         self.color = color
         self.max_speed = max_speed
         self.brand = brand
+        self.type = "Unspecified"
 
-    
-class Lorry(Vehicles):
+class FancyVehicle(Vehicle):
     pass
 
-class Car(Vehicles):
-    pass
+class Lorry(Vehicle):
+    def __init__(self, name, color, max_speed, brand):
+        super().init(name, color, max_speed, brand)
+        self.type = "Lorry"
 
+class Car(Vehicle):
+    def __init__(self, name, color, max_speed, brand):
+        Vehicle.init(self, name, color, max_speed, brand)
+        self.type = "Car"
 
-Truck = Lorry('Trucks', 'White', 130, 'Toyota')
+weirdVehicle = FancyVehicle("weirdVehicle", "Black", 100, "Honda")
+# name: "weirdVehicle", color: "Black", max_speed: 100, brand: "Honda", type: "Unspecified"
 
-Taxi = Car('Taxi', 'Red', 140, 'Toyota')
+truck = Lorry("truck", "White", 130, "Toyota")
+# name: "truck", color: "White", max_speed: 130, brand: "Toyota", type: "Lorry"
 
-print(Truck.name, Truck.color, Truck.max_speed, Truck.brand)
+taxi = Car("taxi", "Red", 140, "Toyota")
+# name: "taxi", color: "Red", max_speed: 140, brand: "Toyota", type: "Car"
 
-
-
-
+# https://www.w3schools.com/python/python_inheritance.asp
+# https://docs.python.org/3/tutorial/classes.html
